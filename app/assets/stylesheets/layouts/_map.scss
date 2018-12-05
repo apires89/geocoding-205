@@ -9,3 +9,13 @@ display: flex;
   background: red;
 }
 }
+
+.mapboxgl-popup {
+  max-width: 100rpx;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+

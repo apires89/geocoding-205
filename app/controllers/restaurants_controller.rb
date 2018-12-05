@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
-  layout 'map', only: [:index]
+  layout 'map', only: [:index,:new]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -11,7 +11,8 @@ class RestaurantsController < ApplicationController
     @markers = @restaurants.map do |restaurant|
       {
         lng:restaurant.longitude,
-        lat:restaurant.latitude
+        lat:restaurant.latitude,
+        infoWindow: {content: render_to_string(partial:"/restaurants/map_window", locals:{ restaurant: restaurant})}
       }
     end
   end
